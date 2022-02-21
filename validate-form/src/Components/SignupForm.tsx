@@ -3,13 +3,13 @@ import "./signup.css";
 import { Email, Name, Phone, Password, confirmedPassword } from "./interface";
 
 const SignupForm: React.FC = () => {
-  const [email, setEmail] = useState<Email[]>([]);
+  const [email, setEmail] = useState<Email | any>("");
   const [name, setName] = useState<Name | any>("");
-  const [phone, setPhone] = useState<Phone[]>([]);
-  const [password, setPassword] = useState<Password[]>([]);
+  const [phone, setPhone] = useState<Phone | any>("");
+  const [password, setPassword] = useState<Password | any>("");
   const [confirmedPassword, setConfirmedPassword] = useState<
-    confirmedPassword[]
-  >([]);
+    confirmedPassword | any
+  >("");
 
   return (
     <section>
@@ -27,6 +27,7 @@ const SignupForm: React.FC = () => {
           type="email"
           id="email"
           name="email"
+          onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
         />
         <label> Password </label>
@@ -34,6 +35,7 @@ const SignupForm: React.FC = () => {
           type="text"
           id="password"
           name="password"
+          onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter your password"
         />
         <label> Confirm Password </label>
@@ -41,6 +43,7 @@ const SignupForm: React.FC = () => {
           type="text"
           id="confirmedPassword"
           name="confirmedPassword"
+          onChange={(e) => setConfirmedPassword(e.target.value)}
           placeholder="Confirm your password"
         />
         <label> Phone number </label>
@@ -48,6 +51,7 @@ const SignupForm: React.FC = () => {
           type="text"
           id="phone"
           name="phone"
+          onChange={(e) => setPhone(e.target.value)}
           placeholder="Enter your phone numbers"
         />
         <button type="submit"> Continue </button>
