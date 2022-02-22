@@ -11,9 +11,13 @@ const SignupForm: React.FC = () => {
     confirmedPassword | any
   >("");
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+  };
+
   return (
     <section>
-      <form className="infoform">
+      <form className="infoform" onSubmit={handleSubmit}>
         <label> Your name </label>
         <input
           type="text"
