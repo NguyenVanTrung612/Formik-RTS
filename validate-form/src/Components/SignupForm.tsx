@@ -13,6 +13,13 @@ const SignupForm: React.FC = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    const newUser = {
+      name,
+      email,
+      phone,
+      password,
+      confirmedPassword,
+    };
   };
 
   return (
