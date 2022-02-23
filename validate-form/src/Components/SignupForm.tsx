@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./signup.css";
 import { Email, Name, Phone, Password, confirmedPassword } from "./interface";
 
@@ -18,8 +18,8 @@ const SignupForm: React.FC = () => {
       email,
       phone,
       password,
-      confirmedPassword,
     };
+    console.log(newUser);
   };
 
   return (
