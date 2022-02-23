@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./signup.css";
 import { Email, Name, Phone, Password, confirmedPassword } from "./interface";
+import { useFormik } from "formik";
 
 const SignupForm: React.FC = () => {
   const [email, setEmail] = useState<Email | any>("");
@@ -10,6 +11,17 @@ const SignupForm: React.FC = () => {
   const [confirmedPassword, setConfirmedPassword] = useState<
     confirmedPassword | any
   >("");
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      name: "",
+      phone: "",
+      password: "",
+      confirmedPassword: "",
+    },
+    onSubmit: email,
+  });
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -30,7 +42,8 @@ const SignupForm: React.FC = () => {
           type="text"
           id="name"
           name="name"
-          onChange={(e) => setName(e.target.value)}
+          value={formik.values.name}
+          onChange={formik.handleChange}
           placeholder="Enter your name"
         />
         <label> Email address </label>
