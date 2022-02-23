@@ -12,15 +12,21 @@ const SignupForm: React.FC = () => {
     confirmedPassword | any
   >("");
 
-  const formik = useFormik({
+  interface ForkimValues {
+    email: string;
+    name: string;
+    // phone: number;
+    password: string;
+    confirmedPassword: string;
+  }
+
+  const formik = useFormik<ForkimValues>({
     initialValues: {
       email: "",
       name: "",
-      phone: "",
       password: "",
       confirmedPassword: "",
     },
-    onSubmit: email,
   });
 
   const handleSubmit = (e: any) => {
@@ -51,7 +57,8 @@ const SignupForm: React.FC = () => {
           type="email"
           id="email"
           name="email"
-          onChange={(e) => setEmail(e.target.value)}
+          value={formik.values.email}
+          onChange={formik.handleChange}
           placeholder="Enter your email"
         />
         <label> Password </label>
@@ -59,7 +66,8 @@ const SignupForm: React.FC = () => {
           type="text"
           id="password"
           name="password"
-          onChange={(e) => setPassword(e.target.value)}
+          value={formik.values.password}
+          onChange={formik.handleChange}
           placeholder="Enter your password"
         />
         <label> Confirm Password </label>
@@ -67,7 +75,8 @@ const SignupForm: React.FC = () => {
           type="text"
           id="confirmedPassword"
           name="confirmedPassword"
-          onChange={(e) => setConfirmedPassword(e.target.value)}
+          value={formik.values.confirmedPassword}
+          onChange={formik.handleChange}
           placeholder="Confirm your password"
         />
         <label> Phone number </label>
@@ -75,7 +84,8 @@ const SignupForm: React.FC = () => {
           type="text"
           id="phone"
           name="phone"
-          onChange={(e) => setPhone(e.target.value)}
+          value={formik.values.phone}
+          onChange={formik.handleChange}
           placeholder="Enter your phone numbers"
         />
         <button type="submit"> Continue </button>
