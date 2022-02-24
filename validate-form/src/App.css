@@ -31,3 +31,9 @@ body {
   border-radius: 14px;
   box-shadow: 0px 0px 14px 3px rgb(222, 224, 250);
 }
+
+@media only screen and (max-width: 500px) {
+  .App {
+    padding: 4rem;
+  }
+}
