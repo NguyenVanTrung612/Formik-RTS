@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./signup.css";
+import "../Components/sass/signup.css";
 import {
   Email,
   Name,
