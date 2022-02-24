@@ -90,7 +90,7 @@ const SignupForm: React.FC = () => {
         )}
         <label> Password </label>
         <input
-          type="text"
+          type="password"
           id="password"
           name="password"
           value={formik.values.password}
@@ -102,7 +102,7 @@ const SignupForm: React.FC = () => {
         )}
         <label> Confirm Password </label>
         <input
-          type="text"
+          type="password"
           id="confirmedPassword"
           name="confirmedPassword"
           value={formik.values.confirmedPassword}
