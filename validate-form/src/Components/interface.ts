@@ -26,7 +26,7 @@ export interface confirmedPassword {
 export interface FormikValues {
   email: string;
   name: string;
-  phone: number;
+  phone: string;
   password: string;
   confirmedPassword: string;
 }
