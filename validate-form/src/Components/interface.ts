@@ -22,3 +22,11 @@ export interface confirmedPassword {
   confirmedPassword: string;
   setConfirmedPassword: string;
 }
+
+export interface FormikValues {
+  email: string;
+  name: string;
+  phone: number;
+  password: string;
+  confirmedPassword: string;
+}
