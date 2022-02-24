@@ -58,6 +58,7 @@ const SignupForm: React.FC = () => {
     }),
     onSubmit: (values) => {
       console.log(values);
+      alert("Sign up Success !");
     },
   });
   console.log(formik.errors.password);
