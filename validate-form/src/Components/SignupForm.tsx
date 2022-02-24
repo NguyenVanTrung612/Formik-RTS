@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import "../Components/sass/signup.css";
 import {
-  Email,
-  Name,
-  Phone,
-  Password,
-  confirmedPassword,
+  // Email,
+  // Name,
+  // Phone,
+  // Password,
+  // confirmedPassword,
   FormikValues,
 } from "./interface";
+import * as Yup from "yup";
+
 import { useFormik } from "formik";
 
 const SignupForm: React.FC = () => {
-  const [email, setEmail] = useState<Email | any>("");
-  const [name, setName] = useState<Name | any>("");
-  const [phone, setPhone] = useState<Phone | any>("");
-  const [password, setPassword] = useState<Password | any>("");
-  const [confirmedPassword, setConfirmedPassword] = useState<
-    confirmedPassword | any
-  >("");
+  // const [email, setEmail] = useState<Email | any>("");
+  // const [name, setName] = useState<Name | any>("");
+  // const [phone, setPhone] = useState<Phone | any>("");
+  // const [password, setPassword] = useState<Password | any>("");
+  // const [confirmedPassword, setConfirmedPassword] = useState<
+  //   confirmedPassword | any
+  // >("");
 
   const formik = useFormik<FormikValues>({
     initialValues: {
@@ -27,10 +29,17 @@ const SignupForm: React.FC = () => {
       phone: "",
       confirmedPassword: "",
     },
+    validationSchema: Yup.object({
+      name: Yup.string()
+        .required("Required")
+        .min(4, "Must be 5 character for more"),
+      email: Yup.string().required("Required"),
+    }),
     onSubmit: (values) => {
       console.log(values);
     },
   });
+  console.log(formik.errors);
 
   return (
     <section>
