@@ -1,6 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./signup.css";
-import { Email, Name, Phone, Password, confirmedPassword } from "./interface";
+import {
+  Email,
+  Name,
+  Phone,
+  Password,
+  confirmedPassword,
+  FormikValues,
+} from "./interface";
 import { useFormik } from "formik";
 
 const SignupForm: React.FC = () => {
@@ -12,37 +19,22 @@ const SignupForm: React.FC = () => {
     confirmedPassword | any
   >("");
 
-  interface ForkimValues {
-    email: string;
-    name: string;
-    // phone: number;
-    password: string;
-    confirmedPassword: string;
-  }
-
-  const formik = useFormik<ForkimValues>({
+  const formik = useFormik<FormikValues>({
     initialValues: {
       email: "",
       name: "",
       password: "",
+      phone: "",
       confirmedPassword: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
     },
   });
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    const newUser = {
-      name,
-      email,
-      phone,
-      password,
-    };
-    console.log(newUser);
-  };
-
   return (
     <section>
-      <form className="infoform" onSubmit={handleSubmit}>
+      <form className="infoform" onSubmit={formik.handleSubmit}>
         <label> Your name </label>
         <input
           type="text"
